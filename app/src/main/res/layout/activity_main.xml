@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:layoutDirection="ltr"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/headRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:alpha="0.9"
+        android:background="@drawable/shape_frame_2_grey"
+        android:orientation="horizontal"
+        android:padding="1dp">
+
+        <Button
+            android:id="@+id/buttonNewNote"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="1dp"
+            android:background="@drawable/selector_new_note_grey"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:onClick="addNewNote"
+            android:text="+"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/buttonSkin"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="false"
+            android:layout_margin="1dp"
+            android:background="@drawable/selector_new_note_grey"
+            android:gravity="center_vertical|start"
+            android:onClick="setNextSkin"
+            android:text="  Color"
+            android:textSize="14sp"
+            android:textStyle="bold|italic" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/listViewNotes"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:alpha="0.9"
+            android:background="@drawable/shape_frame_1_grey"
+            android:padding="2dp">
+
+        </ListView>
+
+        <LinearLayout
+            android:id="@+id/noteLinerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@drawable/shape_frame_1_grey"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/noteTitleLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:alpha="0.7"
+                android:background="@color/Grey_1"
+                android:layoutDirection="ltr"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/textViewNoteTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLength="13"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="15dp"
+                    android:singleLine="true"
+                    android:text="Note Title"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/buttonSave"
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="0"
+                    android:background="@drawable/selector_ic_save_grey"
+                    android:onClick="saveNote" />
+
+                <Button
+                    android:id="@+id/buttonDelete"
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="0"
+                    android:background="@drawable/selector_ic_del_grey"
+                    android:onClick="deleteNote" />
+
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/editTextNoteText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="1"
+                android:alpha="0.9"
+                android:background="@drawable/selector_paper_grey"
+                android:gravity="start"
+                android:inputType="text|textMultiLine"
+                android:padding="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
