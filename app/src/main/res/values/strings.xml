@@ -2,9 +2,8 @@
     <string name="app_name">MyNotes</string>
 
     <string name="save_alert_dialog_msg_1">Do u want to save changes?</string>
-    <string name="save_alert_dialog_msg_2">Are you sure that you want to save changes?</string>
-    <string name="delete_alert_dialog_msg">Are you sure that you want to delete this note?</string>
+    <string name="save_alert_dialog_msg_2">Are you sure you want to save changes?</string>
+    <string name="delete_alert_dialog_msg">Are you sure you want to delete this note?</string>
     <string name="new_note_dialog_msg">Enter a title for your new note:</string>
-
 
 </resources>

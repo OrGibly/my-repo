@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import com.example.orgibly.myappnotes.DialogInterface.OnClickListenerWrapper;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.util.ArrayList;
 
 public class MainActivity extends Activity {
@@ -415,7 +417,7 @@ public class MainActivity extends Activity {
         public void afterTextChanged(Editable editable) {}
     };
 
-//-------------------------------------------------------------------------------
+//---------------------------------- inner class ---------------------------------------
     private class NotesListAdapter extends BaseAdapter{
 
         private ArrayList<Note> notesArrayList = new ArrayList<>();
@@ -425,8 +427,7 @@ public class MainActivity extends Activity {
             notesArrayList.addAll(db.getAllNotes());
         }
 
-        //*Can be null.
-        private void markNote(Note note){
+        private void markNote(@Nullable Note note){
             lastMarkedNoteId = curMarkedNoteId;
             if(note!=null) {
                 curMarkedNoteId = note.getId();

@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -29,9 +30,7 @@ public class DataBaseManager extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        try {
-            getWritableDatabase().execSQL(CREATE_TABLE);
-        } catch (SQLException e) {}
+            sqLiteDatabase.execSQL(CREATE_TABLE);
     }
 
     @Override
@@ -115,9 +114,16 @@ public class DataBaseManager extends SQLiteOpenHelper{
 //    can be optimized by handling a "notes" field and update it when database is changed.
     public ArrayList<Note> getAllNotes(){
         ArrayList<Note> notes = new ArrayList<>();
-        Cursor cursor = getWritableDatabase().rawQuery("SELECT * FROM "+TABLE_NAME
+
+        Cursor cursor = null;
+        try{cursor = getWritableDatabase().rawQuery("SELECT * FROM "+TABLE_NAME
                         +" ORDER BY "+COL_1_id+" DESC;",
-                null);
+                null);}
+                catch (Exception e){
+                    Log.i("exception-----", e.getMessage());
+                }
+
+
         while (cursor.moveToNext()){
             Note newNote = new Note(cursor.getString(1));
             newNote.setId(cursor.getInt(0));
